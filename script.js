@@ -342,3 +342,19 @@ window.addEventListener('resize', function() {
     }
 });
 
+// Carrossel dos convenios
+const track = document.getElementById('track');
+    const totalSlides = track.children.length;
+    let index = 0;
+
+    function moveSlide(direction) {
+      index += direction;
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      const slideWidth = track.children[0].offsetWidth;
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    // Opcional: troca automática
+    setInterval(() => moveSlide(1), 5000); // muda a cada 5s
+
